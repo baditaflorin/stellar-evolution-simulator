@@ -7,6 +7,9 @@ const base = "/stellar-evolution-simulator/";
 const packageJson = JSON.parse(readFileSync("package.json", "utf8")) as {
   version: string;
 };
+const releaseInfo = JSON.parse(readFileSync("release.json", "utf8")) as {
+  commit: string;
+};
 
 export default defineConfig({
   base,
@@ -51,7 +54,7 @@ export default defineConfig({
   ],
   define: {
     __APP_VERSION__: JSON.stringify(packageJson.version),
-    __COMMIT_SHA__: JSON.stringify(process.env.VITE_COMMIT_SHA ?? "runtime"),
+    __COMMIT_SHA__: JSON.stringify(process.env.VITE_COMMIT_SHA ?? releaseInfo.commit),
     __REPO_URL__: JSON.stringify(
       "https://github.com/baditaflorin/stellar-evolution-simulator",
     ),

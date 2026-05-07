@@ -15,14 +15,14 @@ Use Vite environment variables for public, non-secret build-time values:
 - `VITE_APP_VERSION`
 - `VITE_COMMIT_SHA`
 
-The live app fetches the latest public `main` commit from https://api.github.com/repos/baditaflorin/stellar-evolution-simulator/commits/main and falls back to `VITE_COMMIT_SHA` if that request fails.
+The committed `release.json` file stores the short source commit shown in the UI. `VITE_COMMIT_SHA` can override this for local verification or special release builds.
 
 The frontend must never contain API keys, tokens, passwords, private keys, or encrypted secrets. `.env.example` documents placeholders only.
 
 ## Consequences
 
 - Build metadata can appear in the UI.
-- Commit display stays current without making static builds non-deterministic.
+- Commit display stays deterministic and requires no runtime API call.
 - Secrets scanning still runs in local hooks.
 - Runtime configuration is limited to public values.
 

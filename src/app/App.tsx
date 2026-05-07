@@ -2,12 +2,8 @@ import { AlertTriangle, HeartHandshake, Rocket, Star } from "lucide-react";
 import { ErrorBoundary } from "../shared/ui/ErrorBoundary";
 import { SimulatorPage } from "../features/simulator/SimulatorPage";
 import { buildInfo } from "../shared/config/buildInfo";
-import { usePublishedCommit } from "../shared/config/usePublishedCommit";
 
 export function App() {
-  const publishedCommit = usePublishedCommit();
-  const displayCommit = publishedCommit.data ?? buildInfo.commit;
-
   return (
     <ErrorBoundary
       fallback={
@@ -40,7 +36,7 @@ export function App() {
                   Stellar Evolution Simulator
                 </span>
                 <span className="block text-sm text-white/58">
-                  v{buildInfo.version} · {displayCommit}
+                  v{buildInfo.version} · {buildInfo.commit}
                 </span>
               </span>
             </a>
@@ -76,7 +72,7 @@ export function App() {
               MESA-inspired educational model. Not publication-grade astrophysics.
             </span>
             <span>
-              Version {buildInfo.version} · Commit {displayCommit}
+              Version {buildInfo.version} · Commit {buildInfo.commit}
             </span>
           </div>
         </footer>
