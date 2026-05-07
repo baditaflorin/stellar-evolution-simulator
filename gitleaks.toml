@@ -1,0 +1,4 @@
+title = "stellar-evolution-simulator"
+
+[extend]
+useDefault = true

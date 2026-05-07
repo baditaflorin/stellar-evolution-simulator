@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+set -eu
+
+if [ -f package.json ]; then
+  echo "Post-merge: run make install if package-lock.json changed."
+fi

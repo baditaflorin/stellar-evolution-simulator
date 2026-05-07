@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+set -eu
+
+if [ -f package.json ]; then
+  echo "Post-checkout: run make install if dependencies changed."
+fi

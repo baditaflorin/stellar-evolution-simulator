@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Stellar simulator icon">
+  <rect width="512" height="512" fill="#0b0d10"/>
+  <circle cx="256" cy="256" r="102" fill="#ffd166"/>
+  <circle cx="256" cy="256" r="178" fill="none" stroke="#6ee7f9" stroke-width="24"/>
+  <path d="M256 36v92M256 384v92M36 256h92M384 256h92M94 94l68 68M350 350l68 68M418 94l-68 68M162 350l-68 68" stroke="#f97363" stroke-width="26" stroke-linecap="round"/>
+</svg>
