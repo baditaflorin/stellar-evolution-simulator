@@ -1,5 +1,4 @@
 import react from "@vitejs/plugin-react";
-import { execSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { defineConfig } from "vitest/config";
 import { VitePWA } from "vite-plugin-pwa";
@@ -8,21 +7,6 @@ const base = "/stellar-evolution-simulator/";
 const packageJson = JSON.parse(readFileSync("package.json", "utf8")) as {
   version: string;
 };
-
-function readCommitSha() {
-  if (process.env.VITE_COMMIT_SHA) {
-    return process.env.VITE_COMMIT_SHA;
-  }
-
-  try {
-    return execSync("git rev-parse --short HEAD", {
-      encoding: "utf8",
-      stdio: ["ignore", "pipe", "ignore"],
-    }).trim();
-  } catch {
-    return "local";
-  }
-}
 
 export default defineConfig({
   base,
@@ -67,7 +51,7 @@ export default defineConfig({
   ],
   define: {
     __APP_VERSION__: JSON.stringify(packageJson.version),
-    __COMMIT_SHA__: JSON.stringify(readCommitSha()),
+    __COMMIT_SHA__: JSON.stringify(process.env.VITE_COMMIT_SHA ?? "runtime"),
     __REPO_URL__: JSON.stringify(
       "https://github.com/baditaflorin/stellar-evolution-simulator",
     ),
