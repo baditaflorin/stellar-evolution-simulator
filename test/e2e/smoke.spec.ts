@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 test("runs a black-hole-path simulation from the Pages build", async ({ page }) => {
   test.setTimeout(90_000);
 
-  await page.goto("/");
+  await page.goto("./");
   await expect(page.getByText("Stellar Evolution Simulator")).toBeVisible();
   await expect(page.getByText(/v0\.1\.0/)).toBeVisible();
   await expect(page.getByRole("link", { name: "Star repo" })).toHaveAttribute(
